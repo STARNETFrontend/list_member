@@ -9,7 +9,7 @@ body {
   margin: 0px;
   font-family: "Open Sans";
   font-size: 14px;
-  font-smoothing: antialiased;
+  font-smooth: antialiased;
 }
 
 .page {
@@ -29,7 +29,7 @@ body {
 
 .pageHeader {
   width: 100%;
-  height: 100px;
+  height: 110px;
   line-height: 50px;
   background-color: rgba(126,202,156,255);
   color: white;
@@ -84,7 +84,7 @@ body {
   float: left;
   background-color: rgba(227, 234, 235, 0.8);
 }
-
+/* 
 .pageHeader .searchbox {
   width: 170px;
   height: 35px;
@@ -110,7 +110,7 @@ body {
   color: Black;
   font-family: "Lato";
   border: 0px;
-}
+} */
 .main .nav .menu {
   width: 100%;
   /* margin: 15px; */
@@ -267,9 +267,37 @@ body {
 .main .view .content .list ul li .info .button.green {
   background-color: #85C157;
 }
-
 .clear {
   clear: both;
 }
-
+#search-box{
+  background: #fff;
+  border-radius: 40px;
+  display: flex;
+  box-sizing: border-box;
+}
+#search-box #search-text{
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  width: 0;
+  padding: 0;
+  transition: all 0.25s ease-in-out;
+}
+#search-box:hover #search-text:valid{
+  width:150px;
+  padding: 10px 0px 10px 15px;
+}
+#search-box #search-btn{
+  background-color: #fff;
+  cursor: pointer;
+  border: none;
+  padding: 1px 16px 10px 15px;
+  border-radius: 35px;
+  font-size: 18px;
+}
+form{
+  margin-top: 20px;
+}
 

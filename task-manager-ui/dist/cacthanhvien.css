@@ -9,7 +9,7 @@ body {
   margin: 0px;
   font-family: "Open Sans";
   font-size: 14px;
-  font-smoothing: antialiased;
+  font-smooth: antialiased;
 }
 
 .page {
