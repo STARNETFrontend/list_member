@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Nhân Viên - Mùa Vụ</title>
+</head>
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+  </div>
+<body class="bg-dark">
+
+    <div class="">
+        <div class="d-flex">
+            <div class="left" style="width: 20%;">
+                <p id="myfarm" class="text-center logo">My Farm</p>
+                <ul class="list-unstyled">
+                    <li><a href="../index.html"> <i class="fas fa-home"> </i> Trang chủ</a></li>
+                    <li> <a onclick="noad()"><i class="fas fa-users"></i> Quản lý người dùng</a> </li>
+                    
+
+                    <script>
+                        function noad() {
+                            alert("Bạn cần đăng nhập với quyền CHỦ SỞ HỮU để sử dụng chức năng này");
+                        }
+                    </script>
+                    <li class="active"><a href="./muavu.html"><i class="fab fa-pagelines"></i> Quản lý mùa vụ</a></li>
+                    <li><a href="../congviec/congviec.html"><i class="fas fa-clipboard-list"></i> Quản lý công việc</a></li>
+                    <li><a href="../thietbi/thietbi.html"><i class="fas fa-tractor"></i> Quản lý thiết bị</a></li>
+                    
+                    
+                    <li class="mau2"><a id="out">Đăng Xuất: </a></li>
+                    <!--gio -->
+                    <div class="clock">
+                        <div id="Date"></div>
+                        <ul class="gio">
+                            <li id="hours"></li>
+                            <li id="point">:</li>
+                            <li id="min"></li>
+                            <li id="point">:</li>
+                            <li id="sec"></li>
+                        </ul>
+                        
+                    </div>
+                
+                    <h6>Designed by Dang Tuan Thanh</h6>
+                    <h6>....................Nong Van Tuan Anh</h6>
+                    <a class="loi" id="ctloi" >! Báo lỗi</a>
+                </ul>
+            </div>
+
+            <div style="width: 80%" class="bg-light px-4 py-3" id="benphai">
+                <!-- phần tìm kiếm -->
+                <!DOCTYPE html>
+                <html lang="en">
+
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="stylesheet" href="./css/timkiem.css">
+                    <title>Document</title>
+                </head>
+
+                <body>
+
+                    <form>
+                        <input id="timkiem" type="search" placeholder="Tìm Kiếm">
+                    </form>
+
+                    </form>
+                </body>
+
+                </html>
+                <!-- kết thúc tìm kiếm -->
+                <h2 class="mb-3">Quản lý mùa vụ</h2>
+                <p class="lead">&bull; Danh sách mùa vụ</p>
+                <button class="maunutthem" id="themnguoidung">Thêm mùa vụ</button>
+                <button class="maunutthem" id="thongke">Lấy danh sách mùa vụ </button>
+                <div id="slcm"></div>
+                <select id="editst">
+                    <option value="2022-11-16">2022-11-16</option>
+                    <option value="Chưa bắt đầu">Chưa bắt đầu</option>
+                    <option value="Đã kết thúc">Đã kết thúc</option>
+                    
+                </select>
+                <button id="kiemtra">kiemtra</button>
+                <div id="slt" onclick=""></div>
+                <button id="reloaddata" style="float: right;" onclick="taidulieu()" ><i class="fas fa-sync-alt"></i></button>
+                <table id="bangngd" class="table">
+                    <thead>
+                        <tr>
+                            <!-- <th class="cot">STT</th> -->
+                            <th class="cot">Họ Tên</th>
+                            <th class="cot">MSSV</th>
+                            <!-- <th class="cot">Đơn vị tính </th> -->
+                            <th class="cot">Ngày</th>
+                            <th class="cot">Giờ </th>
+                            <th class="cot">Trạng Thái </th>
+                            <!-- <th class="cot">Hành Động</th> -->
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <td id="image" style="text-align: center;" colspan="5"><img style="height: 100px"
+                                src="img/spinner.gif" alt="">
+                        </td>
+
+
+                    </tbody>
+                </table>
+
+                <!--danh sách mùa vụ -->
+                <div id="popthongke" class="modal">
+
+                    <div class="conten-modal">
+                        <span class="daux">&times;</span>
+                        <div>
+
+                            <div style="width: 80%;" class="bg-light px-4 py-3">
+                                <H2>Lấy danh sách mùa vụ</H2>
+                                <H4>Trạng Thái Các Mùa Vụ</H4>
+                                <label for="disk_c">Đã kết thúc :______</label>
+                                <meter id="disk_c" value="2" min="0" max="10">2 out of 10</meter><br>
+
+                                <label for="disk_d">Trong mùa vụ :____</label>
+                                <meter id="disk_d" value="0.6">60%</meter>
+                                <table id="thongkedulieu" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="cot">STT</th>
+                                            <th class="cot">Tên mùa vụ</th>
+                                            <th class="cot">Sản lượng thực tế</th>
+                                            <th class="cot">Thời gian canh tác </th>
+                                            <th class="cot">Sản lượng ước lượng</th>
+                                            <th class="cot">Nhận xét mùa vụ </th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <td id="image" style="text-align: center;" colspan="5"><img
+                                                style="height: 100px" src="img/spinner.gif" alt="">
+                                        </td>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pop2" class="modal">
+                    <!-- Popup err -->
+                    <div class="conten-modal">
+                        <span class="daux">&times;</span>
+                        <div>
+                                                   
+                            <div style="width: 80%;" class="bg-light px-4 py-3">
+                                <H4>Liên hệ ngay với bộ phận kỹ thuật của ứng dụng này :</H4>
+                                <br>
+                                <h5 class="ct">Đặng Tuấn Thành .......... Điện Thoại: 0387712368 ...... Facebook: <a href="http://facebook.com/thanhmixed">thanhmixed</a></h5>
+                                
+                                <br>
+                                <h5 class="ct">Nông Văn Tuấn Anh ...... Điện Thoại: 0333888963 ...... Facebook: <a href="http://facebook.com/nui.anh.986">nui.anh.96</a></h5>
+                                <br>
+                                <h6>Cảm ơn bạn đã sử dụng sản phẩm của chúng tôi.</h6>
+                            </div>
+                        
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popup -->
+                <div id="pop" class="modal">
+
+                    <div class="conten-modal">
+                        <span class="daux">&times;</span>
+                        <div>
+
+                            <div style="width: 80%;" class="bg-light px-4 py-3">
+                                <H4>Thông tin mùa vụ</H4>
+                                <form>
+                                    <input style="display: none;" type="text" id="editId">
+
+                                    <div class="form-group">
+                                        <label>Tên mùa vụ</label>
+                                        <input id="editName" type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group" id="an">
+                                        <label>Sản lượng</label>
+                                        <input id="editAddress" type="number" class="form-control">
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="form-group" id="an2">
+                                        <label>Đơn vị tính</label>
+                                        <select id="editgia">
+                                            <option value="Kg">Kg</option>
+                                            <option value="Tấn">Tấn</option>
+                                            <option value="Tạ">Tạ</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Ngày bắt đầu</label>
+                                        <input id="editdayst" type="date" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Ngày kết thúc( dự kiến)</label>
+                                        <input id="editdayen" type="date" class="form-control">
+                                    </div>
+
+                                    <br>
+                                    <br>
+                                    <div class="form-group">
+                                        <label>Trạng thái</label>
+                                        <select id="editst">
+                                            <option value="Trong mùa vụ">Trong mùa vụ</option>
+                                            <option value="Chưa bắt đầu">Chưa bắt đầu</option>
+                                            <option value="Đã kết thúc">Đã kết thúc</option>
+                                            
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group2">
+                                        <label>Sản lượng đạt được</label>
+                                        <input id="editsl" type="number" class="form-control">
+                                    </div>
+
+                                    <div class="form-group2" >
+                                        <label>Đơn vị tính</label>
+                                        <select id="editdv2">
+                                            <option value="Kg">Kg</option>
+                                            <option value="Tấn">Tấn</option>
+                                            <option value="Tạ">Tạ</option>
+                                        </select>
+                                    </div>
+
+                                    <button type="button" class="btn btn-primary mt-3" id="xacnhan">Xác Nhận</button>
+
+                                    <button type="button" class="btn btn-primary mt-3" id="send">Gửi báo cáo</button>
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="js/muavu.js"></script>
+        <!--Phần bấm chuột 
+        <script src="https://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+        <script>
+            const OPTS = {
+                fill: 'none',
+                radius: 25,
+                strokeWidth: { 50: 0 },
+                scale: { 0: 1 },
+                angle: { 'rand(-35, -70)': 0 },
+                duration: 500,
+                left: 0, top: 0,
+                easing: 'cubic.out'
+            };
+
+            const circle1 = new mojs.Shape({
+                ...OPTS,
+                stroke: 'cyan',
+            });
+
+            const circle2 = new mojs.Shape({
+                ...OPTS,
+                radius: { 0: 15 },
+                strokeWidth: { 30: 0 },
+                stroke: 'magenta',
+                delay: 'rand(75, 150)'
+            });
+
+            document.addEventListener('click', function (e) {
+
+                circle1
+                    .tune({ x: e.pageX, y: e.pageY })
+                    .replay();
+
+                circle2
+                    .tune({ x: e.pageX, y: e.pageY })
+                    .replay();
+
+            });
+        </script>-->
+</body>
+
+</html>
