@@ -20,7 +20,7 @@
   <div class="page">
     <div class="pageHeader">
       <div>
-        <img src="/dist/lOGO DUNG VI.png" style="width: 145px;text-align: left;">
+        <img src="lOGO DUNG VI.png" style="width: 145px;text-align: left;">
       </div>
       <div class="title" style="margin-right: 60px;">DANH SÁCH THÀNH VIÊN CÂU LẠC BỘ LHU-CISCO</div>
       <form action="" id="search-box" style="margin-left: 10px;height: 50px">
@@ -45,7 +45,6 @@
         <div class="viewHeader">
           <div class="title">Tổng thành viên:</div>
           <div class="functions">
-            <!-- <div class="button active">Filter</div> -->
             <label for="cars">Ngày</label>
 
             <select id="cars">
@@ -54,9 +53,10 @@
               <option value="opel">Opel</option>
               <option value="audi">Audi</option>
             </select>
+            <button type="button" class="btn btn-success" id="btn-tvien">Add</button>
           </div>
         </div>
-        <table class="table table-striped">
+        <table class="table table-striped" id="table">
           <thead>
             <tr>
               <th scope="col">Hình</th>
@@ -67,8 +67,8 @@
               <th scope="col">Trạng thái</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody id="tbody">
+            <!-- <tr>
               <th scope="row"></th>
               <td></td>
               <td></td>
@@ -115,15 +115,118 @@
               <td></td>
               <td></td>
               <td></td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
     </div>
+
   </div>
+  </div>
+  <!-- do dùng <div class="modal"> nên ko hiển thị cái form anh muốn thì sửa dùng đó-->
+  <div class="myModal">
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close"> &times</span>
+        <div class="d-flex" style="justify-content: space-between; background-color: rgb(217, 231, 167);">
+          <div>
+            <h3 style="padding: 10px; ">THÊM THÀNH VIÊN</h3>
+          </div>
+          <div class="form-group d-flex justify-content-end" style="padding-top: 10px;">
+            <button type="button" class="btn btn-success" id="btnLoadAdd">ADD</button>
+            <button type="button" class="btn btn-danger" id="btnLoadCancel">CANCEL</button>
+          </div>
+        </div>
+        <!--  -->
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Họ Và Tên</label>
+            <input class="form-control" type="text" id="txtname" placeholder="Nhập tên">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Mã Số Sinh Viên</label>
+            <input class="form-control" type="number" id="txtnumber" placeholder="Nhập mã số sinh viên">
+          </div>
+          <div>
+            <label for="exampleInputEmail1">Ngày</label>
+            <input class="form-control" type="date" id="txtdate">
+          </div>
+          <div>
+            <label for="exampleInputEmail1">Giờ</label>
+            <input class="form-control" type="time" id="txttime">
+          </div>
+          <div>
+            <label for="exampleInputEmail1" style="padding-right: 30px">Trạng Thái</label>
+            <span style="padding-right: 30px;">
+              <input name="gender" type="radio" value="Chưa bắt đầu" id="status" style="margin-right: 10px;">Có mặt
+            </span>
+            <span style="padding-right: 30px;">
+              <input name="gender" type="radio" value="Trong mùa vụ" id="status" style="margin-right: 10px;">Trễ
+            </span>
+            <span style="padding-right: 30px;">
+              <input name="gender" type="radio" value="Đã kết thúc" id="status" style="margin-right: 10px;">Vắng mặt
+            </span>
+          </div>
+      </div>
+      </form>
+    </div>
+
+    <div class="sua">
+      <div class="modal">
+        <div class="modal-content ">
+          <span class="close "> &times</span>
+          <div class="d-flex " style="justify-content: space-between; background-color: rgb(217, 231, 167); ">
+            <div>
+              <h3 style="padding: 10px; ">SỬA THÀNH VIÊN</h3>
+            </div>
+            <div class="form-group d-flex justify-content-end " style="padding-top: 10px; ">
+              <button type="button " class="btn btn-success " id="btnEdit ">EDIT</button>
+              <button type="button " class="btn btn-danger " id="btncancel ">CANCEL</button>
+            </div>
+          </div>
+          <form>
+            <div class="form-group">
+              <input class="form-control" type="text" id="id">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Họ Và Tên</label>
+              <input class="form-control" type="text" id="txtname" placeholder="Nhập tên">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Mã Số Sinh Viên</label>
+              <input class="form-control" type="number" id="txtnumber" placeholder="Nhập mã số sinh viên">
+            </div>
+            <div>
+              <label for="exampleInputEmail1">Ngày</label>
+              <input class="form-control" type="date" id="txtdate">
+            </div>
+            <div>
+              <label for="exampleInputEmail1">Giờ</label>
+              <input class="form-control" type="time" id="txttime">
+            </div>
+            <div>
+              <label for="exampleInputEmail1" style="padding-right: 30px">Trạng Thái</label>
+              <span style="padding-right: 30px;">
+                <input name="gender" type="radio" value="Chưa bắt đầu" id="status" style="margin-right: 10px;">Có mặt
+              </span>
+              <span style="padding-right: 30px;">
+                <input name="gender" type="radio" value="Trong mùa vụ" id="status" style="margin-right: 10px;">Trễ
+              </span>
+              <span style="padding-right: 30px;">
+                <input name="gender" type="radio" value="Đã kết thúc" id="status" style="margin-right: 10px;">Vắng mặt
+              </span>
+            </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
   <!-- partial -->
   <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 

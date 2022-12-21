@@ -43,10 +43,18 @@
         </div>
       </div>
       <div class="view">
-        <div class="viewHeader">
+        <div class="viewHeader" style="border-bottom: none;">
           <div class="title">Vắng mặt:</div>
           <div class="functions">
-            <div class="button active">Filter</div>
+            <label for="cars">Ngày</label>
+
+            <select id="cars">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="opel">Opel</option>
+              <option value="audi">Audi</option>
+            </select>
+            <button type="button" class="btn btn-success">Add</button>
           </div>
         </div>
         <table class="table table-striped">
@@ -60,8 +68,8 @@
               <th scope="col">Trạng thái</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody id="tbody">
+            <!-- <tr>
               <th scope="row"></th>
               <td></td>
               <td></td>
@@ -108,7 +116,7 @@
               <td></td>
               <td></td>
               <td></td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
